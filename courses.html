@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Amatic+SC|Dancing+Script' rel='stylesheet' type='text/css'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<!-- endbuild -->
+
+   
+</head>
+
+<body>
+    
+            <nav class="navbar navbar-default navbar-static-top topnav" role="navigation">
+            <div class="container">
+             <!--for a responsive navbar-->
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+<div id="navbar" class="navbar-collapse collapse"> 
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html"><i class="fa fa-cutlery"></i></a></li>
+                    <li><a href="#">About</a>                     </li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                         role="button" aria-haspopup="true" aria-expanded="false">
+                         Menu <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Main Courses</a></li>
+                            <li><a href="#">Dessert Bar</a></li>
+                            <li><a href="#">Drinks</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Lunch Buffet</a></li>
+                            
+                        </ul>
+                     </li>
+                <li><a href="contact.html">Contact</a></li>
+                </ul>
+                   <ul class="nav navbar-nav navbar-right">
+                    <li><a onclick="login()">
+                    <span class="glyphicon glyphicon-log-in"></span> Login
+                        </a>
+                    </li>
+                </ul>
+                   
+                </div>
+                </div>
+            </nav> 
+    
+    <div id="loginModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+						<div class="modal-header">
+			    		<button type="button" class="close" data-dismiss="modal">&times;</button>
+			    		<h4 class="modal-title">Login </h4>
+						</div>
+						<div class="modal-body">
+						  <form class="form-inline">
+<div class="form-group">
+    <label class="sr-only" for="exampleInputEmail3"></label>
+    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3"></label>
+    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+        
+  <button type="submit" class="btn btn-info btn-xs">Sign in</button>
+  <button type="button" class="btn btn-default btn-xs" data-dismiss="modal">Cancel</button>
+         </form>
+						      </div>
+						  
+						</div>
+				</div>
+    </div>
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Project X</h1>
+                        <h3>Gastronomy</h3>
+                        
+                   </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+<div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="row">
+                
+            
+            <ol class="breadcrumb">
+  <li><a href="index.html">Home</a></li>
+  <li class="active">Courses</li>
+  </ol>
+            <br>
+            <div>
+               <h3>Courses</h3>
+               
+            </div>
+        </div>
+            <br>
+
+    <div class="container">
+        <div class="row row-content" ng-controller="DishDetailController">
+            <div class="col-xs-12">
+              <ul class="media-list">
+                <li class="media">
+                  <div class="media-left media-middle">
+                    <a href="#">
+                      <img class="media-object img-thumbnail"
+                        ng-src={{dish.image}} alt="Uthappizza">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h2 class="media-heading">{{dish.name}}
+                      <span class="label label-danger">{{dish.label}}</span>
+                      <span class="badge">{{dish.price | currency}}</span>
+                    </h2>
+                    <p>{{dish.description}}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-9 col-xs-offset-1">
+              <h4 class="media-heading"><span>
+                <i class="glyphicon glyphicon-comment"></i>
+                &nbsp;{{dishCtrl.dish.comments.length}} Customer comments
+                  </span></h4> 
+                <h4 class="right">sort by: <input type="text" ng-model="sortVal"></h4>
+              <div class="media"
+                ng-repeat="comment in dish.comments | orderBy: sortVal">
+                <blockquote>
+                  <header>
+                    <div class="glyphicon glyphicon-star"
+                      ng-repeat="i in [1, 2, 3, 4, 5] | limitTo:comment.rating">
+                    </div>
+                    <div class="glyphicon glyphicon-star-empty"
+                      ng-repeat="i in [1, 2, 3, 4, 5] | limitTo:5-comment.rating">
+                    </div>
+                  </header>
+                  <p>{{comment.comment}}</p>
+                  <footer>
+                    <span><i class="glyphicon glyphicon-calendar">
+                      </i> {{comment.date | date: 'MM-dd-yyyy'}}
+                    </span> <cite>{{comment.author}}</cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+                <ul class="list-unstyled" >
+                  <div class="media" ng-show="isValid()">
+                    <blockquote>
+                      <header>
+                        <div class="glyphicon glyphicon-star"
+                          ng-repeat="i in [1, 2, 3, 4, 5] | limitTo:comment.rating">
+                        </div>
+                        <div class="glyphicon glyphicon-star-empty"
+                          ng-repeat="i in [1, 2, 3, 4, 5] | limitTo:5-comment.rating">
+                        </div>
+                      </header>
+                      <p>{{comment.comment}}</p>
+                      <footer>
+                        <cite>{{comment.author}}</cite>
+                      </footer>
+                    </blockquote>
+                  </div>
+                </ul>
+                <form class="form-horizontal" name="commentForm"
+                		ng-submit="submitComment()" novalidate>
+                  <div class="form-group" ng-class="{ 'has-error' : commentForm.author.$error.required && !commentForm.author.$pristine }">
+                      <label for="author" class="col-sm-2 control-label">Your Name</label>
+                      <div class="col-sm-10">
+                      <input type="text" class="form-control" id="author" name="author" placeholder="Enter Your Name"
+                        ng-model="comment.author" required>
+                        <span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine"
+                              class="help-block">Your name is required.</span>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="stars" class="col-sm-2 control-label">Number of Stars</label>
+                    <div class="col-sm-10" id="stars">
+                      <label class="radio-inline" ng-repeat="starsvalue in [1,2,3,4,5]" for="{{starsvalue}}">
+                        <input type="radio" name="optradio"
+                               ng-value="starsvalue" ng-model="comment.rating"
+                               id="{{starsvalue}}">{{starsvalue}}
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group" ng-class="{ 'has-error' : commentForm.comments.$error.required && !commentForm.comments.$pristine }">
+                      <label for="comments" class="col-sm-2 control-label">Your Comments</label>
+                      <div class="col-sm-10">
+                          <textarea class="form-control" rows="12" id="comments"
+                              ng-model="comment.comment" name="comments" required>
+                          </textarea>
+                          <span ng-show="commentForm.comments.$error.required && !commentForm.comments.$pristine"
+                                class="help-block">Your comments are required.</span>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-primary"
+                                  ng-disabled="commentForm.$invalid">Submit Comment</button>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<!-- build:js scripts/main.js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+<!-- endbuild -->
+
+</body>
+
+</html>
